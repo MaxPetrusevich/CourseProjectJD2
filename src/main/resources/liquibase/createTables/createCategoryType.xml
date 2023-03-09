@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+<changeSet id="create-category-type" author="Maks">
+    <createTable tableName="category_type">
+        <column name="category_id" type="bigint"></column>
+        <column name="type_id" type="bigint"></column>
+    </createTable>
+    <addPrimaryKey tableName="category_type" columnNames="category_id, type_id"></addPrimaryKey>
+</changeSet>
+
+</databaseChangeLog>
