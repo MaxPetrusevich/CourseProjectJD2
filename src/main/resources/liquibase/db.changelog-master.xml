@@ -11,6 +11,7 @@
     <include file="createTables/createTechnique.xml" relativeToChangelogFile="true"/>
     <include file="createTables/createTechStore.xml" relativeToChangelogFile="true"/>
     <include file="createTables/createType.xml" relativeToChangelogFile="true"/>
+    <include file="createTables/createUser.xml" relativeToChangelogFile="true"/>
     <include file="addForeignKeys/addCategoryTypeConstraint.xml" relativeToChangelogFile="true"/>
     <include file="addForeignKeys/addTechConstraints.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

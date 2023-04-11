@@ -11,6 +11,8 @@
 <div class="w3-container" style="margin-left:10px; width:400px;">
     <h3>Выберите параметр редактирования</h3>
     <form action="main" method="get">
+        <input type="hidden" name ="role" value="${requestScope.role}">
+        <input type="hidden" name="status" value="${requestScope.status}">
         <input type="hidden" name="prevURL" value="/CourseProjectJD2?${pageContext.request.queryString}"/>
         <input type ="hidden" name ="tecId" value="${requestScope.tecId}">
         <select name="command">
@@ -25,6 +27,9 @@
         <button type="submit">Подтвердить</button>
     </form>
     <form action="main" method="get">
+
+        <input type="hidden" name ="role" value="${requestScope.role}">
+        <input type="hidden" name="status" value="${requestScope.status}">
         <input type ="hidden" required name = "command" value ="Select">
         <button type="submit">Назад к списку</button>
     </form>

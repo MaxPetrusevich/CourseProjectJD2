@@ -23,10 +23,6 @@
             </button>
         </form>
     </div>
-    <form action="main" method="get">
-        <input type ="hidden" required name = "command" value ="Select">
-        <button type="submit">Просмотреть список</button>
-    </form>
 </div>
 </body>
 </html>

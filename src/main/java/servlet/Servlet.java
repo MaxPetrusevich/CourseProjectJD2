@@ -31,74 +31,12 @@ public class Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         command = req.getParameter(COMMAND);
-        if (ADD.compareTo(command) == 0) {
-            addCommand(req, resp);
-        } else if (UPDATE.compareTo(command) == 0) {
-            updateCommand(req, resp);
-        } else if (DELETE.compareTo(command) == 0) {
-            deleteCommand(req, resp);
-        } else if (LOGIN_REG.compareTo(command) == 0) {
-            loginRegCommand(req, resp);
-        } else if (LOGIN_AUTO.compareTo(command) == 0) {
-            loginAutoCommand(req, resp);
-        } else {
-            commandExecutor = CommandFactory.getInstance().getCommand(command);
-            commandExecutor.execute(req,resp);
-        }
-    }
-
-    protected void addCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(WEB_INF_JSP_ADD_JSP).forward(req, resp);
-    }
-
-
-    protected void updateCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute(ROLE, req.getParameter(ROLE));
         req.setAttribute(STATUS, req.getParameter(STATUS));
-        req.setAttribute(FIELD, req.getParameter(FIELD));
-/*
-        req.setAttribute("currentPage", req.getParameter("currentPage"));
-        req.setAttribute("recordsPerPage", req.getParameter("recordsPerPage"));
-*/
-
-        if (GET.equals(req.getMethod())) {
-            req.setAttribute(TEC_ID, req.getParameter(TEC_ID));
-            req.getRequestDispatcher(UPDATE_JSP_WAY).forward(req, resp);
-        }
-    }
-
-    protected void deleteCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher(WEB_INF_JSP_DELETE_JSP).forward(req, resp);
-    }
-
-    protected void loginRegCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute(ROLE, req.getParameter(ROLE));
-        req.setAttribute(STATUS, req.getParameter(STATUS));
-
-        if (GET.equals(req.getMethod())) {
-            req.setAttribute(ACTION, REG);
-            req.getRequestDispatcher(LOGIN_JSP_WAY).forward(req, resp);
-        } else {
-            req.setAttribute(NAME, req.getParameter(NAME));
-            req.setAttribute(EMAIL, req.getParameter(EMAIL));
-            req.setAttribute(PASSWORD, req.getParameter(PASSWORD));
-            commandExecutor = new LoginRegCommand();
-            commandExecutor.execute(req, resp);
-        }
-    }
-
-    protected void loginAutoCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute(ROLE, req.getParameter(ROLE));
-        req.setAttribute(STATUS, req.getParameter(STATUS));
-        if (GET.equals(req.getMethod())) {
-            req.setAttribute(ACTION, AUTO);
-            req.getRequestDispatcher(LOGIN_JSP_WAY).forward(req, resp);
-        } else {
-            req.setAttribute(EMAIL, req.getParameter(EMAIL));
-            req.setAttribute(PASSWORD, req.getParameter(PASSWORD));
-            commandExecutor = new LoginAutoCommand();
-            commandExecutor.execute(req, resp);
-        }
+        commandExecutor = CommandFactory.getInstance().getCommand(command);
+        commandExecutor.execute(req, resp);
     }
 }
+
+
+

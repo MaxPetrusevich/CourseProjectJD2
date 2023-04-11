@@ -14,6 +14,8 @@
 </head>
 <body>
 <form action="main" method="post">
+  <input type="hidden" name ="role" value="${requestScope.role}">
+  <input type="hidden" name="status" value="${requestScope.status}">
   <input type="hidden" name="command" value="storeDeleteCommand">
   <br>
   <div>
@@ -29,6 +31,8 @@
   <button type="submit">Удалить</button>
 </form>
 <form action="main" method="get">
+  <input type="hidden" name ="role" value="${requestScope.role}">
+  <input type="hidden" name="status" value="${requestScope.status}">
   <input type="hidden" required name="command" value="Delete">
   <button type="submit">Назад в меню выбора</button>
 </form>

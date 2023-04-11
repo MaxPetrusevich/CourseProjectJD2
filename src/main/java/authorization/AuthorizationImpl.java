@@ -14,6 +14,12 @@ public class AuthorizationImpl implements Authorization {
     public static final String EMAIL = "Email";
     public static final String PASSWORD = "Password";
     public static final String NAME = "Name";
+    public static final String STATUS = "status";
+    public static final String AUTO = "Auto";
+    public static final String ROLE = "role";
+    public static final String ADMIN = "Admin";
+    public static final String USER = "User";
+    public static final String NO_AUTO = "NoAuto";
     private final Dao dao = new DaoUserImpl();
 
     @SneakyThrows
@@ -26,13 +32,13 @@ public class AuthorizationImpl implements Authorization {
                 users) {
             if (user.getEmail().compareTo(email) == 0) {
                 if (user.getPassword().compareTo(password) == 0) {
-                    req.setAttribute("status", "Auto");
-                    req.setAttribute("role", user.isRole() ? "Admin" : "User");
+                    req.setAttribute(STATUS, AUTO);
+                    req.setAttribute(ROLE, user.isRole() ? ADMIN : USER);
                     return;
                 }
             }
         }
-        req.setAttribute("status", "NoAuto");
+        req.setAttribute(STATUS, NO_AUTO);
     }
 
     @SneakyThrows
@@ -44,8 +50,7 @@ public class AuthorizationImpl implements Authorization {
         boolean role = false;
         User user = User.builder().username(name).email(email).password(password).role(role).build();
         dao.save(user);
-        req.setAttribute("status", "Auto");
-        req.setAttribute("users", dao.findAll(new User()));
+        req.setAttribute(STATUS, AUTO);
 
     }
 

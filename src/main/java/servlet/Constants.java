@@ -14,7 +14,7 @@ public class Constants {
     public static final String SELECT = "Select";
     public static final String UPDATE = "Update";
     public static final String DELETE = "Delete";
-    public static final String LOGIN_JSP_WAY = "jsp/login.jsp";
+    public static final String LOGIN_JSP_WAY = "WEB-INF/jsp/login.jsp";
     public static final String LOGIN_REG = "LoginReg";
     public static final String LOGIN_AUTO = "LoginAuto";
     public static final String NAME = "Name";

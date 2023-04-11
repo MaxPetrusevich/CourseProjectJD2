@@ -14,6 +14,8 @@
 </head>
 <body>
 <form action="main" method="post">
+    <input type="hidden" name ="role" value="${requestScope.role}">
+    <input type="hidden" name="status" value="${requestScope.status}">
     <input type="hidden" name="command" value="storeAddCommand">
     <p>Название магазина</p>
     <input type="text" name="storeName" placeholder="Введите название магазина">
@@ -23,6 +25,8 @@
 </form>
 
 <form action="main" method="get">
+    <input type="hidden" name ="role" value="${requestScope.role}">
+    <input type="hidden" name="status" value="${requestScope.status}">
     <input type="hidden" name="command" value="Add">
     <button type="submit">Назад в меню выбора</button>
 </form>

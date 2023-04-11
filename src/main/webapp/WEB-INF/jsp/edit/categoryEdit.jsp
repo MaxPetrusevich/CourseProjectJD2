@@ -14,6 +14,8 @@
 </head>
 <body>
 <form action="main" method="post">
+    <input type="hidden" name ="role" value="${requestScope.role}">
+    <input type="hidden" name="status" value="${requestScope.status}">
     <input type="hidden" name="command" value="categoryEditCommand">
     <input type="hidden" name="categoryId" value="${requestScope.unit.category.id}">
     <input type="text" name="categoryName" value="${requestScope.unit.category.name}">
@@ -39,6 +41,8 @@
     <button type="submit">Обновить</button>
 </form>
 <form action="main" method="get">
+    <input type="hidden" name ="role" value="${requestScope.role}">
+    <input type="hidden" name="status" value="${requestScope.status}">
     <input type="hidden" required name="tecId" value="${unit.id}">
     <input type="hidden" required name="command" value="Update">
     <button type="submit">Назад в меню выбора</button>

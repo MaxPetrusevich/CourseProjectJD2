@@ -13,8 +13,8 @@
 <div class="w3-container" style="margin-left:10px; width:400px;">
   <form action="main" method="post" >
     <input type="hidden" required name="command" value="LoginReg">
-    <input class="w3-input w3-border" style="margin-top:40px; height: 40px; width: 400px;"  required name="Name" placeholder="Введите имя">
-    <input class="w3-input w3-border"  style="margin-top:40px; height: 40px; width: 400px;"required name="Email" placeholder="Введите E-Mail">
+    <input type="text" class="w3-input w3-border" style="margin-top:40px; height: 40px; width: 400px;"  required name="Name" placeholder="Введите имя">
+    <input type="email" class="w3-input w3-border"  style="margin-top:40px; height: 40px; width: 400px;"required name="Email" placeholder="Введите E-Mail">
     <input class="w3-input w3-border"  type="password" style="margin-top:40px; height: 40px; width: 400px;"required name="Password" placeholder="Веедите пароль">
     <button class="w3-button w3-round btn-block w3-green" type="submit">Регистрация</button>
   </form>
@@ -22,7 +22,7 @@
   <c:otherwise>
     <form action="main" method="post">
       <input type="hidden" required name="command" value="LoginAuto">
-      <input class="w3-input w3-border"  style="margin-top:40px; height: 40px; width: 400px;"  required name="Email" placeholder="Введите E-Mail">
+      <input type="email" class="w3-input w3-border"  style="margin-top:40px; height: 40px; width: 400px;"  required name="Email" placeholder="Введите E-Mail">
       <input class="w3-input w3-border" type="password" style="margin-top:40px; height: 40px; width: 400px;"  required name="Password" placeholder="Веедите пароль">
       <button class="w3-button w3-round btn-block w3-green" type="submit">Войти</button>
     </form>

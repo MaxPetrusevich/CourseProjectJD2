@@ -61,6 +61,11 @@ public final class CommandFactory {
         commands.put(FIND_BY_MODEL, new FindByModelCommand());
         commands.put(FIND_BY_PRICE, new FindByPrice());
         commands.put(FIND_BY_PRODUCER, new FindByProducerCommand());
+        commands.put(LOGIN_AUTO, new LoginAutoCommand());
+        commands.put(LOGIN_REG, new LoginRegCommand());
+        commands.put(ADD, new AddCommand());
+        commands.put(UPDATE, new UpdateCommand());
+        commands.put(DELETE, new DeleteCommand());
     }
     public static CommandFactory getInstance() {
         if (instance == null) {

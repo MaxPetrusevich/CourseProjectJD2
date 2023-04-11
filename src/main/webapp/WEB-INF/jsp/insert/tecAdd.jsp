@@ -14,6 +14,8 @@
 </head>
 <body>
 <form action="main" method="post">
+    <input type="hidden" name ="role" value="${requestScope.role}">
+    <input type="hidden" name="status" value="${requestScope.status}">
     <input type="hidden" name="command" value="techEditCommand">
     <input type="number" name="techPrice" placeholder="Введите цену">
     <select name="category">
