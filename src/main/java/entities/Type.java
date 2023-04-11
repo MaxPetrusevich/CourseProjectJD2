@@ -1,9 +1,6 @@
 package entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(of = {"id"})
+@ToString(exclude = {"categories"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -25,6 +24,7 @@ public class Type implements Serializable {
     @Column(name = "type_name")
     private String name;
 
-    @ManyToMany(mappedBy = "types")
-    private Set<Category> categories = new HashSet<Category>();
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

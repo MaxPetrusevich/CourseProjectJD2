@@ -11,6 +11,12 @@
             <constraints primaryKey="true" nullable="false"/>
         </column>
         <column name="type_name" type="varchar(30)"></column>
+        <column name="category_id" type="bigint">
+            <constraints nullable="true"></constraints>
+        </column>
     </createTable>
+    <createIndex tableName="type" indexName="category_id">
+        <column name="category_id"></column>
+    </createIndex>
 </changeSet>
 </databaseChangeLog>

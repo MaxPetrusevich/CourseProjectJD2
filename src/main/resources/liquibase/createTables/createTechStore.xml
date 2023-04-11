@@ -5,10 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 <changeSet id="create-tech-store" author="Maks">
     <createTable tableName="tech_store">
-        <column name="tech_id" type="bigint"></column>
-        <column name="store_id" type="bigint"></column>
-        <column name="tech_count" type="bigint"></column>
-    </createTable>
+        <column name="tech_id" type="bigint">
+            <constraints unique="false" nullable="false"></constraints>
+        </column>
+        <column name="store_id" type="bigint">
+            <constraints unique="false" nullable="false"></constraints>
+        </column>
+   </createTable>
     <addPrimaryKey tableName="tech_store" columnNames="store_id, tech_id"></addPrimaryKey>
 </changeSet>
 

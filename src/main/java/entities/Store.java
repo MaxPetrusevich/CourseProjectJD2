@@ -1,9 +1,6 @@
 package entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(of = {"id"})
+@ToString(exclude = {"techniques"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -29,6 +28,6 @@ public class Store implements Serializable {
     @Column(name = "store_address")
     private String address;
 
-    @ManyToMany(mappedBy = "stores")
+    @ManyToMany(mappedBy = "storeList")
     private Set<Technique> techniques = new HashSet<Technique>();
 }

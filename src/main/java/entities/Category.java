@@ -1,9 +1,6 @@
 package entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
+@ToString(exclude = {"techniques", "types"})
 @AllArgsConstructor
 @Data
 @Builder
@@ -25,11 +24,7 @@ public class Category implements Serializable {
     @Column(name = "category_name")
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "category_type",
-    joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "type_id")
-    )
+    @OneToMany(mappedBy = "category")
     private Set<Type> types = new HashSet<Type>();
 
     @OneToMany(mappedBy = "category")
