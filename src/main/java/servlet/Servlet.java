@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static command.Constants.TECH_ID;
 import static command.Constants.WEB_INF_JSP_DELETE_JSP;
 import static servlet.Constants.*;
 
@@ -31,6 +32,7 @@ public class Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         command = req.getParameter(COMMAND);
+        req.setAttribute(TECH_ID, req.getParameter(TECH_ID));
         req.setAttribute(ROLE, req.getParameter(ROLE));
         req.setAttribute(STATUS, req.getParameter(STATUS));
         commandExecutor = CommandFactory.getInstance().getCommand(command);

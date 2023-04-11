@@ -14,7 +14,7 @@
         <input type="hidden" name ="role" value="${requestScope.role}">
         <input type="hidden" name="status" value="${requestScope.status}">
         <input type="hidden" name="prevURL" value="/CourseProjectJD2?${pageContext.request.queryString}"/>
-        <input type ="hidden" name ="tecId" value="${requestScope.tecId}">
+        <input type ="hidden" name ="techId" value="${requestScope.techId}">
         <select name="command">
             <option value="">не выбрано</option>
             <option value="techEditCommand">Техника</option>

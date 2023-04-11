@@ -28,7 +28,7 @@ public class CategoryEditCommand implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(GET.equals(req.getMethod())){
-            req.setAttribute(UNIT, SERVICE.findById(Integer.parseInt((String) req.getAttribute(ID))));
+            req.setAttribute(UNIT, SERVICE.findById(Integer.parseInt((String) req.getAttribute(TECH_ID))));
             req.setAttribute(TYPES, TYPE_SERVICE.findAll(new TypeDto()));
             req.getRequestDispatcher(WEB_INF_JSP_EDIT_CATEGORY_EDIT_JSP).forward(req,resp);
         } else{

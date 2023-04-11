@@ -110,7 +110,6 @@
                             <c:if test="${requestScope.role eq 'Admin'}">
                                 <td>
                                     <form action="main" method="get">
-
                                         <input type="hidden" name ="role" value="${requestScope.role}">
                                         <input type="hidden" name="status" value="${requestScope.status}">
                                         <input type="hidden" required name="techId" value="${unit.id}">
